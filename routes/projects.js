@@ -56,20 +56,20 @@ module.exports = io => {
         .catch((error) => next(error))
       })
 
-    .patch('/projects/:id/status', authenticate, (req, res, next) => {
+    .patch('/projects/:id/changestatus', authenticate, (req, res, next) => {
       const id = req.params.id
 
       Project.findById(id)
         .then((project) => {
           if (!project) { return next() }
 
-          let updatedVillage = {...project.village[0], name: req.body.name}
-          let updatedPlayer = {...project, village: [updatedVillage]}
+          let updatedStatus = {...project.status[0], name: req.body.name}
+          let updatedProject = {...project, status: [updatedStatus]}
 
-          Project.findByIdAndUpdate(id, { $set: updatedPlayer }, { new: true })
+          Project.findByIdAndUpdate(id, { $set: updatedProject }, { new: true })
             .then((project) => {
               io.emit('action', {
-                type: 'PLAYER_UPDATED',
+                type: 'PROJECT_UPDATED',
                 payload: project
               })
               res.json(project)
@@ -78,28 +78,6 @@ module.exports = io => {
         })
         .catch((error) => next(error))
     })
-    // .patch('/projects/:id/moveprojects', authenticate, (req, res, next) => {
-    //   const id = req.params.id
-    //
-    //   Project.findById(id)
-    //     .then((project) => {
-    //       if (!project) { return next() }
-    //       if (project.dead ) { return next()}
-    //       let updatedVillage = {...project.village[0], name: req.body.name}
-    //       let updatedPlayer = {...project, village: [updatedVillage]}
-    //
-    //   Project.findByIdAndUpdate(id, { $set: updatedPlayer }, { new: true })
-    //         .then((project) => {
-    //           io.emit('action', {
-    //             type: 'PLAYERS_UPDATED',
-    //             payload: project
-    //           })
-    //           res.json(project)
-    //         })
-    //         .catch((error) => next(error))
-    //     })
-    //     .catch((error) => next(error))
-    // })
 
     .delete('/projects/:id', authenticate, loadProjects, (req, res, next) => {
       const id = req.params.id
