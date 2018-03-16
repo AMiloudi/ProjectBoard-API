@@ -16,7 +16,7 @@ const createProjects = (token) => {
         console.log('Project seeded...', res.body.title)
       })
       .catch((err) => {
-        console.error('Error seeding player!', err)
+        console.error('Error seeding project!', err)
       })
   })
 }
