@@ -3,15 +3,15 @@ const user = require('./fixtures/user.json')
 const projects = require('./fixtures/projects.json')
 
 const createUrl = (path) => {
-  return `${process.env.HOST || `http://localhost:${process.env.PORT || 3030}`}${path}`
+  return `${process.env.HOST || `http://localhost:${process.env.PORT || 3000}`}${path}`
 }
 
-const createPlayers = (token) => {
+const createProjects = (token) => {
   return projects.map((project) => {
     return request
       .post(createUrl('/projects'))
       .set('Authorization', `Bearer ${token}`)
-      .send(player)
+      .send(project)
       .then((res) => {
         console.log('Project seeded...', res.body.title)
       })
@@ -27,7 +27,7 @@ const authenticate = (email, password) => {
     .send({ email, password })
     .then((res) => {
       console.log('Authenticated!')
-      return createPlayers(res.body.token)
+      return createProjects(res.body.token)
     })
     .catch((err) => {
       console.error('Failed to authenticate!', err.message)
