@@ -1,15 +1,11 @@
-// config/database.js
 const mongoose = require('mongoose')
 
-// Use native promises
 mongoose.Promise = global.Promise
 
-// Connect to MongoDB
-const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost/evaluation-tool'
+const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost/project-board'
 mongoose.set('debug', true)
 mongoose.connect(MONGODB_URL, { useMongoClient: true })
 
-// Monitor DB connection
 const db = mongoose.connection
 db.on('error', console.error.bind(console, 'connection error:'))
 db.once('open', () => {
