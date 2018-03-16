@@ -1,0 +1,60 @@
+[
+  {
+    "title": "Project 1",
+    "text": true,
+    "status": [
+      {
+        "name": "Flowcharts"
+      }
+    ]
+  },
+  {
+    "title": "Project 2",
+    "text": "Raclette mlkshk subway tile, jean shorts four loko blue bottle gochujang health goth 3 wolf moon.",
+
+    "status": [
+      {
+        "name": "Wireframes"
+      }
+    ]
+  },
+  {
+    "title": "Project 3",
+    "text": "Hexagon food truck normcore kinfolk hashtag health goth. Blue bottle tattooed schlitz taiyaki.",
+
+    "status": [
+      {
+        "name": "Prototype"
+      }
+    ]
+  },
+  {
+    "title": "Project 4",
+    "text": "Pug mustache hot chicken, readymade ennui intelligentsia dreamcatcher.",
+
+    "status": [
+      {
+        "name": "Development"
+      }
+    ]
+  },
+  {
+    "title": "Project 5",
+    "text": "Jean shorts lomo meh disrupt, iPhone gentrify prism franzen affogato man braid gastropub pitchfork swag af. ",
+
+    "status": [
+      {
+        "name": "Test"
+      }
+    ]
+  },
+  {
+    "title": "Project 6",
+    "text": "Skateboard tacos narwhal pop-up, irony vape four dollar toast cornhole gluten-free tofu wayfarers kickstarter.",
+    "status": [
+      {
+        "name": "Launch"
+      }
+    ]
+  }
+]
